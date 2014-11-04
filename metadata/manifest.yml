@@ -44,4 +44,5 @@ Subscribes:
 Scaling:
   Min: 1
   Max: -1
-  
+
+Source-Url: https://github.com/mperezco/openshift-cartridge-tibco-client.git
