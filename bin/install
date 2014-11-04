@@ -4,7 +4,7 @@
 
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
-env_dir="${OPENSHIFT_PRIMARY_CARTRIDGE_DIR}/env"
+env_dir="${OPENSHIFT_TIBCO_CLIENT_DIR}/env"
 
 username=admin
 password=
