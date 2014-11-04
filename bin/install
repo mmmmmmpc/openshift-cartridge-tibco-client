@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Embeds Tibco configuration into a Tomcat instance
+
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+
+env_dir="${OPENSHIFT_ORACLEJDBC_DIR}/env"
+
+username=admin
+password=
+tibco_host=192.168.122.8
+tibco_port=7222
+tibco_queue=
+
+set_env_var 'OPENSHIFT_TIBCO_CLIENT_USERNAME' $username $env_dir
+set_env_var 'OPENSHIFT_TIBCO_CLIENT_PASSWORD' $password $env_dir
+set_env_var 'OPENSHIFT_TIBCO_CLIENT_HOST' $tibco_host $env_dir
+set_env_var 'OPENSHIFT_TIBCO_CLIENT_PORT' $tibco_port $env_dir
+set_env_var 'OPENSHIFT_TIBCO_CLIENT_QUEUE' $tibco_queue $env_dir
+
+conn_url='tcp://$OPENSHIFT_TIBCO_CLIENT_HOST:$OPENSHIFT_TIBCO_CLIENT_PORT/$OPENSHIFT_TIBCO_CLIENT_QUEUE'
+
+cart_props "connection_url=${conn_url}"
+cart_props "username=${username}"
+cart_props "password=${password}"
+
+cp -af /opt/tibco/ems/8.0/lib/*.jar ${OPENSHIFT_DEPENDENCIES_DIR}
+
+${OPENSHIFT_JBOSSEWS_DIR}/bin/control restart
+
+client_result "Tibco EMS client 8.0.0 added."

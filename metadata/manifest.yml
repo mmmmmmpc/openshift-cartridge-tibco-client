@@ -1,0 +1,47 @@
+Name: tibco-client
+Cartridge-Short-Name: TIBCO_CLIENT
+Display-Name: Tibco Client
+Description: "This cartridge configures the Tibco client."
+Version: '8.0.0'
+License: ASL 2.0
+
+Vendor: Santander
+Cartridge-Version: 1.0.0
+Cartridge-Vendor: santander
+
+
+Categories:
+  - service
+  - embedded
+Cart-Data:
+- Key: username
+  Type: cart_data
+  Description: User on Tibco queues
+- Key: password
+  Type: cart_data
+  Description: Password for user on Tibco queues
+- Key: connection_url
+  Type: cart_data
+  Description: Tibco connection URI
+Website: http://www.santander.com
+Help-Topics:
+  "Developer Center": https://openshift.redhat.com/community/developers
+Provides:
+  - "tibcoclient"
+Requires:
+  - "jbossews-2.0"
+Conflicts:
+Native-Requires:
+Architecture: noarch
+Reservations:
+Components:
+  default:
+    Service-Dependencies:
+    Publishes:
+    Subscribes:
+Publishes:
+Subscribes:
+Scaling:
+  Min: 1
+  Max: -1
+  
