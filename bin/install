@@ -9,10 +9,10 @@ mkdir -p ${OPENSHIFT_TIBCO_CLIENT_DIR}/env
 env_dir="${OPENSHIFT_TIBCO_CLIENT_DIR}/env"
 
 username=admin
-password=""
+password="pass"
 tibco_host=192.168.122.8
 tibco_port=7222
-tibco_queue=""
+tibco_queue="queue"
 
 set_env_var 'OPENSHIFT_TIBCO_CLIENT_USERNAME' $username $env_dir
 set_env_var 'OPENSHIFT_TIBCO_CLIENT_PASSWORD' $password $env_dir
