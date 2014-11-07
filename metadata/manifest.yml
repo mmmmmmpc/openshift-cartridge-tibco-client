@@ -6,12 +6,13 @@ Version: '8.0.0'
 License: ASL 2.0
 
 Vendor: Santander
-Cartridge-Version: 1.0.0
+Cartridge-Version: 1.0.2
 Cartridge-Vendor: santander
 
 
 Categories:
   - service
+  - database
   - embedded
 Cart-Data:
 - Key: username
@@ -27,9 +28,7 @@ Website: http://www.santander.com
 Help-Topics:
   "Developer Center": https://openshift.redhat.com/community/developers
 Provides:
-  - "tibcoclient"
-Requires:
-  - "jbossews-2.0"
+  - "tibco-client"
 Conflicts:
 Native-Requires:
 Architecture: noarch
@@ -45,4 +44,3 @@ Scaling:
   Min: 1
   Max: -1
 
-Source-Url: https://github.com/mperezco/openshift-cartridge-tibco-client.git

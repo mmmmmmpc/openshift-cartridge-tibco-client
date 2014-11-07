@@ -26,7 +26,7 @@ cart_props "connection_url=${conn_url}"
 cart_props "username=${username}"
 cart_props "password=${password}"
 
-cp -af /opt/tibco/ems/8.0/lib/*.jar ${OPENSHIFT_DEPENDENCIES_DIR}
+#cp -af /opt/tibco/ems/8.0/lib/*.jar ${OPENSHIFT_DEPENDENCIES_DIR}
 
 ${OPENSHIFT_JBOSSEWS_DIR}/bin/control restart
 
