@@ -26,8 +26,10 @@ cart_props "connection_url=${conn_url}"
 cart_props "username=${username}"
 cart_props "password=${password}"
 
-#cp -af /opt/tibco/ems/8.0/lib/*.jar ${OPENSHIFT_DEPENDENCIES_DIR}
+mkdir -p ${OPENSHIFT_BUILD_DEPENDENCIES_DIR}/.m2/repository/com/tibco/tibjms/tibjms/8.0.0/
+cp -f /opt/tibco/ems/8.0/lib/*.jar ${OPENSHIFT_BUILD_DEPENDENCIES_DIR}/.m2/repository/com/tibco/tibjms/tibjms/8.0.0/
 
-${OPENSHIFT_JBOSSEWS_DIR}/bin/control restart
+echo "mvn install:install-file -Dfile=${OPENSHIFT_BUILD_DEPENDENCIES_DIR}/.m2/repository/com/tibco/tibjms/tibjms/8.0.0/tibjms.jar -DgroupId=com.tibco.tibjms -DartifactId=tibjms -Dversion=8.0.0 -Dpackaging=jar" >> ${OPENSHIFT_REPO_DIR}/.openshift/action_hooks/prebuild
+echo "mvn install:install-file -Dfile=${OPENSHIFT_BUILD_DEPENDENCIES_DIR}/.m2/repository/com/tibco/tibjms/tibjms/8.0.0/tibrvjms.jar -DgroupId=com.tibco.tibjms -DartifactId=tibjms -Dversion=8.0.0 -Dpackaging=jar" >> ${OPENSHIFT_REPO_DIR}/.openshift/action_hooks/prebuild
 
 client_result "Tibco EMS client 8.0.0 added."
